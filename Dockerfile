@@ -12,7 +12,7 @@ RUN apt-get install -y\
     cups-pdf\
     locales\
     sudo\
-    whois\
+    whois
 
 # Install all drivers
 RUN apt-get install -y printer-driver-all
