@@ -12,13 +12,12 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV LANGUAGE en_US:en
 
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN mkdir /var/lib/apt/lists/partial
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && mkdir /var/lib/apt/lists/partial
 
 # Disbale some cups backend that are unusable within a container
 RUN mv /usr/lib/cups/backend/parallel /usr/lib/cups/backend-available/ &&\
     mv /usr/lib/cups/backend/serial /usr/lib/cups/backend-available/ &&\
-    mv /usr/lib/cups/backend/usb /usr/lib/cups/backend-available/
+    rm /usr/lib/cups/backend/usb
 
 ADD etc-cups /etc/cups
 RUN mkdir -p /etc/cups/ssl
