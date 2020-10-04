@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:buster
 
 MAINTAINER Graeme Gellatly "graemeg@roof.co.nz"
 
